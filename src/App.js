@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, createContext } from "react";
+import "./App.css";
+import AddMed from "./Component/AddMed";
+import Header from "./Component/Header";
+import Med from "./Component/Med";
+import Cart from "./Component/Cart";
+
+export const Contex = createContext();
 
 function App() {
+  const [med, setmed] = useState([]);
+  const [cart, setcart] = useState({});
+  const [opencart, setopencart] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Contex.Provider value={{ med, setmed, cart, setcart, setopencart }}>
+      <div className="App">
+        <Header />
+        {opencart && <Cart />}
+        <AddMed />
+        <hr></hr>
+        <Med />
+      </div>
+    </Contex.Provider>
   );
 }
 
