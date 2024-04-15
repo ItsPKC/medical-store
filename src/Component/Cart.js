@@ -28,8 +28,8 @@ const Cart = () => {
             <div key={i.toString()}>
               <div>{cart[m].name}</div>
               <div>{cart[m].des}</div>
-              <div>{cart[m].price}</div>
-              <div>{cart[m].quantity}</div>
+              <div>{+cart[m].price}</div>
+              <div>{+cart[m].quantity}</div>
             </div>
           );
         })}

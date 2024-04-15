@@ -43,7 +43,7 @@ const Med = () => {
           <div key={i.toString()}>
             <div>{m["name"]}</div>
             <div>{m["des"]}</div>
-            <div>{m["price"]}</div>
+            <div>{+m["price"]}</div>
             <div>{+m["quantity"]}</div>
             <div
               className="addToCart"
